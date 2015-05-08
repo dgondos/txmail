@@ -7,14 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by dgondos on 2/05/15.
- */
 public class SMSFragment extends Fragment {
-    /**
-     * Returns a new instance of this fragment for the given section
-     * number.
-     */
+
     public static SMSFragment newInstance() {
         SMSFragment fragment = new SMSFragment();
         Bundle args = new Bundle();
@@ -28,8 +22,7 @@ public class SMSFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_tx_mail_sms, container, false);
-        return rootView;
+        return inflater.inflate(R.layout.fragment_tx_mail_sms, container, false);
     }
 
     @Override

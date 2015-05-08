@@ -1,16 +1,17 @@
 <resources>
     <string name="app_name">TxMail</string>
 
-    <string name="title_section1">Status</string>
-    <string name="title_section2">SMS settings</string>
-    <string name="title_section3">Mail settings</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_example">Apply</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="action_start">Start</string>
-    <string name="action_stop">Stop</string>
+    <string name="mail_label_section_title">Mail settings</string>
+    <string name="mail_label_host">SMTP host</string>
+    <string name="mail_label_port">SMTP port</string>
+    <string name="mail_label_user">Username</string>
+    <string name="mail_label_pass">Password</string>
+    <string name="mail_check_auth">Use authentication</string>
+    <string name="mail_check_ssl">Use SSL</string>
+    <string name="status_label_section_title">Status</string>
+    <string name="status_toggle_sync">Toggle sync</string>
+    <string name="sms_label_section_title">SMS settings</string>
 </resources>
