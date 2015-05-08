@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.telephony.SmsMessage;
-import android.util.Log;
 
 import java.util.Date;
 import java.util.Properties;
@@ -21,19 +20,26 @@ import korex.mail.internet.MimeMultipart;
 
 public class SyncService extends BroadcastReceiver {
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context c, Intent intent) {
+        if (!TxConfig.get(c).getBoolean("sync_enabled", false)) {
+            return;
+        }
+
         byte[] pdu = (byte[]) ((Object[]) intent.getExtras().get("pdus"))[0];
 
         SmsMessage sms = SmsMessage.createFromPdu(pdu);
         String sms_orig_address = sms.getDisplayOriginatingAddress();
         String sms_body = sms.getDisplayMessageBody();
 
-        SMTPSender sender = new SMTPSender("192.168.1.6", "31331", "", "", false);
+        SMTPSender sender = new SMTPSender(TxConfig.get(c).getString("mail_host", ""),
+                                           TxConfig.get(c).getString("mail_port", ""),
+                                           TxConfig.get(c).getString("mail_user", ""),
+                                           TxConfig.get(c).getString("mail_pass", ""),
+                                           TxConfig.get(c).getBoolean("mail_ssl", false));
         try {
             sender.send("TxMail", "dgondos@localhost", "TxMail: New SMS from " + sms_orig_address, "SMS body:\n" + sms_body);
         } catch (MessagingException e) {
             e.printStackTrace();
-            Log.d("txmail", "Exception when trying to send mail: " + e.toString());
         }
     }
 }
