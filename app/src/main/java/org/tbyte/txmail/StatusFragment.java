@@ -39,7 +39,7 @@ public class StatusFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
                 if (isChecked && configurationMissing(buttonView.getContext())) {
                     Toast.makeText(buttonView.getContext(),
-                            "Please configure mail settings first",
+                            "Please configure SMTP settings first",
                             Toast.LENGTH_SHORT).show();
                     buttonView.setChecked(false);
                     return;
@@ -59,9 +59,9 @@ public class StatusFragment extends Fragment {
     }
 
     private boolean configurationMissing(Context c) {
-        return TxConfig.get(c).getString("mail_host", "").isEmpty() ||
-               TxConfig.get(c).getString("mail_port", "").isEmpty() ||
-               (TxConfig.get(c).getBoolean("mail_auth", false) && TxConfig.get(c).getString("mail_user", "").isEmpty());
+        return TxConfig.get(c).getString("smtp_host", "").isEmpty() ||
+               TxConfig.get(c).getString("smtp_port", "").isEmpty() ||
+               (TxConfig.get(c).getBoolean("smtp_auth", false) && TxConfig.get(c).getString("smtp_user", "").isEmpty());
     }
 
     @Override

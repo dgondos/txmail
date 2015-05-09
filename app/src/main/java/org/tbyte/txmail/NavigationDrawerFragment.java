@@ -102,7 +102,7 @@ public class NavigationDrawerFragment extends Fragment {
                 android.R.id.text1,
                 new String[]{
                         getString(R.string.status_label_section_title),
-                        getString(R.string.mail_label_section_title),
+                        getString(R.string.smtp_label_section_title),
                         //getString(R.string.sms_label_section_title),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);

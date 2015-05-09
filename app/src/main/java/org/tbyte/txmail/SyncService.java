@@ -31,11 +31,11 @@ public class SyncService extends BroadcastReceiver {
         String sms_orig_address = sms.getDisplayOriginatingAddress();
         String sms_body = sms.getDisplayMessageBody();
 
-        SMTPSender sender = new SMTPSender(TxConfig.get(c).getString("mail_host", ""),
-                                           TxConfig.get(c).getString("mail_port", ""),
-                                           TxConfig.get(c).getString("mail_user", ""),
-                                           TxConfig.get(c).getString("mail_pass", ""),
-                                           TxConfig.get(c).getBoolean("mail_ssl", false));
+        SMTPSender sender = new SMTPSender(TxConfig.get(c).getString("smtp_host", ""),
+                                           TxConfig.get(c).getString("smtp_port", ""),
+                                           TxConfig.get(c).getString("smtp_user", ""),
+                                           TxConfig.get(c).getString("smtp_pass", ""),
+                                           TxConfig.get(c).getBoolean("smtp_ssl", false));
         try {
             sender.send("TxMail", "dgondos@localhost", "TxMail: New SMS from " + sms_orig_address, "SMS body:\n" + sms_body);
         } catch (MessagingException e) {

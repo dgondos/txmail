@@ -11,30 +11,30 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-public class MailFragment extends Fragment {
+public class SMTPSettingsFragment extends Fragment {
 
-    public static MailFragment newInstance() {
-        MailFragment fragment = new MailFragment();
+    public static SMTPSettingsFragment newInstance() {
+        SMTPSettingsFragment fragment = new SMTPSettingsFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public MailFragment() {
+    public SMTPSettingsFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_tx_mail_mail, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tx_mail_smtp, container, false);
 
-        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_host), "mail_host");
-        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_port), "mail_port");
-        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_user), "mail_user");
-        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_pass), "mail_pass");
+        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_host), "smtp_host");
+        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_port), "smtp_port");
+        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_user), "smtp_user");
+        initialiseEditText((EditText) rootView.findViewById(R.id.mail_text_pass), "smtp_pass");
 
-        initialiseCheckBox(((CheckBox) rootView.findViewById(R.id.mail_check_auth)), "mail_auth");
-        initialiseCheckBox(((CheckBox) rootView.findViewById(R.id.mail_check_ssl)), "mail_ssl");
+        initialiseCheckBox(((CheckBox) rootView.findViewById(R.id.mail_check_auth)), "smtp_auth");
+        initialiseCheckBox(((CheckBox) rootView.findViewById(R.id.mail_check_ssl)), "smtp_ssl");
 
         return rootView;
     }

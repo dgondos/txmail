@@ -4,14 +4,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="mail_label_section_title">Mail settings</string>
-    <string name="mail_label_host">SMTP host</string>
-    <string name="mail_label_port">SMTP port</string>
-    <string name="mail_label_user">Username</string>
-    <string name="mail_label_pass">Password</string>
-    <string name="mail_check_auth">Use authentication</string>
-    <string name="mail_check_ssl">Use SSL</string>
+    <string name="smtp_label_section_title">SMTP settings</string>
+    <string name="smtp_label_host">Host</string>
+    <string name="smtp_label_port">Port</string>
+    <string name="smtp_label_user">Username</string>
+    <string name="smtp_label_pass">Password</string>
+    <string name="smtp_check_auth">Use authentication</string>
+    <string name="smtp_check_ssl">Use SSL</string>
     <string name="status_label_section_title">Status</string>
     <string name="status_toggle_sync">Toggle sync</string>
-    <string name="sms_label_section_title">SMS settings</string>
+    <string name="mail_label_section_title">Mail settings</string>
 </resources>
