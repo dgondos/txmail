@@ -27,12 +27,12 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/smtp_label_host"
-            android:id="@+id/mail_label_host" />
+            android:id="@+id/smtp_label_host" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mail_text_host"
+            android:id="@+id/smtp_text_host"
             android:layout_gravity="center_horizontal"
             android:singleLine="true" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/smtp_label_port"
-                android:id="@+id/mail_label_port"
+                android:id="@+id/smtp_label_port"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"/>
 
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/smtp_check_ssl"
-                android:id="@+id/mail_check_ssl"
+                android:id="@+id/smtp_check_ssl"
                 android:checked="false"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"/>
@@ -62,7 +62,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mail_text_port"
+            android:id="@+id/smtp_text_port"
             android:layout_gravity="center_horizontal"
             android:singleLine="true" />
 
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/smtp_label_user"
-                android:id="@+id/mail_label_user"
+                android:id="@+id/smtp_label_user"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"/>
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/smtp_check_auth"
-                android:id="@+id/mail_check_auth"
+                android:id="@+id/smtp_check_auth"
                 android:checked="false"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"/>
@@ -93,7 +93,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mail_text_user"
+            android:id="@+id/smtp_text_user"
             android:layout_gravity="center_horizontal"
             android:singleLine="true"/>
 
@@ -102,14 +102,14 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/smtp_label_pass"
-            android:id="@+id/mail_label_pass" />
+            android:id="@+id/smtp_label_pass" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/mail_text_pass"
+            android:id="@+id/smtp_text_pass"
             android:layout_gravity="center_horizontal"
             android:singleLine="true"/>
     </LinearLayout>

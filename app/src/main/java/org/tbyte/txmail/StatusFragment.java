@@ -33,14 +33,22 @@ public class StatusFragment extends Fragment {
         return rootView;
     }
 
-    public ToggleButton.OnCheckedChangeListener syncButtonListener() {
+    private ToggleButton.OnCheckedChangeListener syncButtonListener() {
         return new ToggleButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
-                if (isChecked && configurationMissing(buttonView.getContext())) {
+                if (isChecked && smtpConfigurationMissing(buttonView.getContext())) {
                     Toast.makeText(buttonView.getContext(),
                             "Please configure SMTP settings first",
                             Toast.LENGTH_SHORT).show();
+                    buttonView.setChecked(false);
+                    return;
+                }
+
+                if (isChecked && TxConfig.get(buttonView.getContext()).getString("mail_to", "").isEmpty()) {
+                    Toast.makeText(buttonView.getContext(),
+                                   "Please add a recipient in " + getString(R.string.mail_label_section_title),
+                                   Toast.LENGTH_SHORT).show();
                     buttonView.setChecked(false);
                     return;
                 }
@@ -58,7 +66,7 @@ public class StatusFragment extends Fragment {
         };
     }
 
-    private boolean configurationMissing(Context c) {
+    private boolean smtpConfigurationMissing(Context c) {
         return TxConfig.get(c).getString("smtp_host", "").isEmpty() ||
                TxConfig.get(c).getString("smtp_port", "").isEmpty() ||
                (TxConfig.get(c).getBoolean("smtp_auth", false) && TxConfig.get(c).getString("smtp_user", "").isEmpty());
