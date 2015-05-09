@@ -49,12 +49,12 @@ public class TxMail extends ActionBarActivity
                 break;
             case 1:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, SMTPSettingsFragment.newInstance())
+                        .replace(R.id.container, MailSettingsFragment.newInstance())
                         .commit();
                 break;
             case 2:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, SMSFragment.newInstance())
+                        .replace(R.id.container, SMTPSettingsFragment.newInstance())
                         .commit();
                 break;
         }

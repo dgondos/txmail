@@ -11,7 +11,13 @@
     <string name="smtp_label_pass">Password</string>
     <string name="smtp_check_auth">Use authentication</string>
     <string name="smtp_check_ssl">Use SSL</string>
+
     <string name="status_label_section_title">Status</string>
     <string name="status_toggle_sync">Toggle sync</string>
+
     <string name="mail_label_section_title">Mail settings</string>
+    <string name="mail_label_from">From</string>
+    <string name="mail_label_to">To</string>
+    <string name="mail_label_subject">Subject</string>
+    <string name="mail_label_body">Body</string>
 </resources>

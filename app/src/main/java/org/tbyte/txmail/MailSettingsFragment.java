@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class SMSFragment extends Fragment {
+public class MailSettingsFragment extends Fragment {
 
-    public static SMSFragment newInstance() {
-        SMSFragment fragment = new SMSFragment();
+    public static MailSettingsFragment newInstance() {
+        MailSettingsFragment fragment = new MailSettingsFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public SMSFragment() {
+    public MailSettingsFragment() {
     }
 
     @Override
