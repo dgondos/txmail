@@ -27,8 +27,16 @@ public class TxConfig {
         editor.commit();
     }
 
+    public static String getString(Context c, String key, String defaultValue) {
+        String returnValue = get(c).getString(key, "");
+        if (returnValue.isEmpty()) {
+            returnValue = defaultValue;
+        }
+        return returnValue;
+    }
+
     public static void initialiseEditText(EditText editText, String configKey) {
-        editText.setText(TxConfig.get(editText.getContext()).getString(configKey, ""));
+        editText.setText(TxConfig.getString(editText.getContext(), configKey, ""));
         editText.setOnFocusChangeListener(getEditTextOnFocusChangeListener(configKey));
     }
 
@@ -42,7 +50,7 @@ public class TxConfig {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 final EditText editText = (EditText) v;
-                if (!editText.getText().toString().equals(TxConfig.get(v.getContext()).getString(config_key, ""))) {
+                if (!editText.getText().toString().equals(TxConfig.getString(v.getContext(), config_key, ""))) {
                     TxConfig.set(v.getContext(), new TxConfig.TxConfigSetter() {
                         @Override
                         public void onCallback(SharedPreferences.Editor editor) {

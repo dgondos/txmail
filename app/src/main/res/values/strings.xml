@@ -21,6 +21,7 @@
     <string name="mail_label_subject">Subject</string>
     <string name="mail_label_body">Body</string>
 
+    <string name="mail_text_default_from">TxMail</string>
     <string name="mail_text_default_subject_format">TxMail: New SMS from %a</string>
     <string name="mail_text_default_body_format">SMS body:\n%b</string>
 </resources>

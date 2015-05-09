@@ -31,18 +31,18 @@ public class SyncService extends BroadcastReceiver {
         String sms_orig_address = sms.getDisplayOriginatingAddress();
         String sms_body = sms.getDisplayMessageBody();
 
-        SMTPSender sender = new SMTPSender(TxConfig.get(c).getString("smtp_host", ""),
-                                           TxConfig.get(c).getString("smtp_port", ""),
-                                           TxConfig.get(c).getString("smtp_user", ""),
-                                           TxConfig.get(c).getString("smtp_pass", ""),
+        SMTPSender sender = new SMTPSender(TxConfig.getString(c, "smtp_host", ""),
+                                           TxConfig.getString(c, "smtp_port", ""),
+                                           TxConfig.getString(c, "smtp_user", ""),
+                                           TxConfig.getString(c, "smtp_pass", ""),
                                            TxConfig.get(c).getBoolean("smtp_ssl", false));
         try {
-            sender.send(TxConfig.get(c).getString("mail_from", "TxMail"),
-                        TxConfig.get(c).getString("mail_to", ""),
-                        parseMessageFormat(TxConfig.get(c).getString("mail_subject", c.getString(R.string.mail_text_default_subject_format)),
+            sender.send(TxConfig.getString(c, "mail_from", c.getString(R.string.mail_text_default_from)),
+                        TxConfig.getString(c, "mail_to", ""),
+                        parseMessageFormat(TxConfig.getString(c, "mail_subject", c.getString(R.string.mail_text_default_subject_format)),
                                            sms_orig_address,
                                            sms_body),
-                        parseMessageFormat(TxConfig.get(c).getString("mail_body", c.getString(R.string.mail_text_default_body_format)),
+                        parseMessageFormat(TxConfig.getString(c, "mail_body", c.getString(R.string.mail_text_default_body_format)),
                                            sms_orig_address,
                                            sms_body));
         } catch (MessagingException e) {

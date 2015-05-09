@@ -45,7 +45,7 @@ public class StatusFragment extends Fragment {
                     return;
                 }
 
-                if (isChecked && TxConfig.get(buttonView.getContext()).getString("mail_to", "").isEmpty()) {
+                if (isChecked && TxConfig.getString(buttonView.getContext(), "mail_to", "").isEmpty()) {
                     Toast.makeText(buttonView.getContext(),
                                    "Please add a recipient in " + getString(R.string.mail_label_section_title),
                                    Toast.LENGTH_SHORT).show();
@@ -67,9 +67,9 @@ public class StatusFragment extends Fragment {
     }
 
     private boolean smtpConfigurationMissing(Context c) {
-        return TxConfig.get(c).getString("smtp_host", "").isEmpty() ||
-               TxConfig.get(c).getString("smtp_port", "").isEmpty() ||
-               (TxConfig.get(c).getBoolean("smtp_auth", false) && TxConfig.get(c).getString("smtp_user", "").isEmpty());
+        return TxConfig.getString(c, "smtp_host", "").isEmpty() ||
+               TxConfig.getString(c, "smtp_port", "").isEmpty() ||
+               (TxConfig.get(c).getBoolean("smtp_auth", false) && TxConfig.getString(c, "smtp_user", "").isEmpty());
     }
 
     @Override
